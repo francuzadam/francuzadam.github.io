@@ -24,13 +24,13 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
+  name             : "Adam Francuz"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  bio              : "Freelance Data Analyst & Data Scientist"
+  location         : "Budapest, Hungary"
+  employer         : "University of Miskolc"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "francuzadam13@gmail.com" 
 
   # Academic websites
   academia         : # URL
@@ -38,9 +38,9 @@ author:
   googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
   inspire-hep      : # URL
   impactstory      : # URL
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            : # URL
   semantic         : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : # URL
   researchgate     : # URL
   scopus           : # URL
 
@@ -63,7 +63,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # Username
+  linkedin         : "adam-francuz"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
