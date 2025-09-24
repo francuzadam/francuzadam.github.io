@@ -22,7 +22,7 @@ document.getElementById("reportForm").addEventListener("submit", async function(
   e.preventDefault();
   const email = document.getElementById("email").value;
   
-  const response = await fetch("https://fradam99.app.n8n.cloud/webhook/0804ce0e-0240-40a0-9752-874be5147124", {
+  const response = await fetch("https://fradam99.app.n8n.cloud/webhook-test/0804ce0e-0240-40a0-9752-874be5147124", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email: email })
