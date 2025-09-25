@@ -1,4 +1,3 @@
-<img width="670" height="465" alt="image" src="https://github.com/user-attachments/assets/2f4b4e78-0b34-4f11-a592-b6f57cc74271" />---
 permalink: /
 title: "Portfolio Website"
 author_profile: true
