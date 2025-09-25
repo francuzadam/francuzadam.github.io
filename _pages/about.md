@@ -1,15 +1,33 @@
----
+<img width="670" height="465" alt="image" src="https://github.com/user-attachments/assets/2f4b4e78-0b34-4f11-a592-b6f57cc74271" />---
 permalink: /
-title: "Portfolio for Data Analyst & Data Scientist projects"
+title: "Portfolio Website"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-This is the front page of a website that is powered by the [Academic Pages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the repository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. Incidentally, these same features make it a great template for anyone that needs to show off a professional template!
+My name is Ádám Francuz, and I’m a freelance Data Analyst & Data Scientist with several years of experience in the field. Currently, I’m pursuing a PhD at the University of Miskolc, where my research focuses on AI applications and model development for logistics process optimization.
+On this site, you’ll find an overview of my professional experience, academic publications, and a selection of interactive projects showcased in the portfolio section.
 
- You can fork [this template](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and Markdown files, add your own PDFs and other content, and have your own site for free, with no ads!
+**Tech Stack:** Excel / VBA / Google Sheets / Python / SQL / Power BI
+
+If you're looking for a highly skilled, up-to-date, and flexible Data Analyst & Scientist, feel free to get in touch. I can support you in the following areas:
+
+Data Analytics 
+======
+
+Data Visualization 
+======
+
+Report automatation 
+======
+
+Data Science projects 
+======
+
+Logistics optimization 
+======
 
 A data-driven personal website
 ======
