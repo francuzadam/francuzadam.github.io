@@ -4,15 +4,19 @@ title: Kapcsolat
 permalink: /contact/
 ---
 
-https://formspree.io/f/YOUR_FORM_ID
-  <label for="name">Név:</label><br>
-  <input type="text" name="name" required><br><br>
-
-  <label for="email">Email:</label><br>
-  <input type="email" name="_replyto" required><br><br>
-
-  <label for="message">Üzenet:</label><br>
-  <textarea name="message" rows="5" required></textarea><br><br>
-
-  <button type="submit">Küldés</button>
+<!-- modify this form HTML and place wherever you want your form -->
+<form
+  action="https://formspree.io/f/movkvwpz"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
 </form>
