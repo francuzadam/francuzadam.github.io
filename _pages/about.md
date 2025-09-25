@@ -1,3 +1,4 @@
+---
 permalink: /
 title: "Portfolio Website"
 author_profile: true
