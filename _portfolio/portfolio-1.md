@@ -1,7 +1,7 @@
 ---
-title: "Portfolio item number 1"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/dataviz.png'>"
+title: "Data vizualization for Premier League matches"
+excerpt: "This Power BI report provides a generally overview of Premier League matches.<br/><img src='/images/dataviz.png'>"
 collection: portfolio
 ---
 
-This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. 
+Dynamic dashboards offer powerful opportunities to transform raw data into clear and interactive insights. This project demonstrates how Power BI can be used to analyze complex datasets, uncover key statistics, and highlight patterns in the data. The full dataset and report files are available on my GitHub profile.
