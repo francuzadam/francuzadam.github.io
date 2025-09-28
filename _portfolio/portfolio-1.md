@@ -1,5 +1,5 @@
 ---
-title: "Data vizualization for Premier League matches"
+title: "Data visualization for Premier League matches"
 excerpt: "This Power BI report provides a generally overview of Premier League matches.<br/><img src='/images/dataviz.png'>"
 collection: portfolio
 ---
