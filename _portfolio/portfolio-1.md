@@ -5,3 +5,5 @@ collection: portfolio
 ---
 
 Dynamic dashboards offer powerful opportunities to transform raw data into clear and interactive insights. This project demonstrates how Power BI can be used to analyze complex datasets, uncover key statistics, and highlight patterns in the data. The full dataset and report files are available on my GitHub profile.
+
+<br/><img src='/images/dataviz.png'>
