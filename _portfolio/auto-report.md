@@ -70,15 +70,15 @@ document.getElementById("travelForm").addEventListener("submit", async function(
   if (response.ok) {
     const result = await response.json();
     console.log(result); // fejlesztéshez
-    
+
     try {
       const recommendations = result[0].message.content.recommendations;
-    
+
       if (recommendations && Array.isArray(recommendations)) {
         document.getElementById("responseMessage").innerText = "Ajánlott úti célok:";
         const container = document.getElementById("recommendations");
         container.innerHTML = "";
-    
+
         recommendations.forEach(rec => {
           const card = document.createElement("div");
           card.style.marginBottom = "15px";
@@ -95,5 +95,10 @@ document.getElementById("travelForm").addEventListener("submit", async function(
       console.error("Parsing hiba:", err);
       document.getElementById("responseMessage").innerText = "Hiba történt az ajánlások feldolgozása során.";
     }
+  } else {
+    const errorText = await response.text();
+    console.error("Hiba:", errorText);
+    document.getElementById("responseMessage").innerText = "Hiba történt a kérés feldolgozása során.";
+  }
 });
 </script>
