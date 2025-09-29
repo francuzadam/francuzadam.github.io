@@ -42,6 +42,7 @@ collection: portfolio
   <button type="submit">Ajánlás kérése</button>
 </form>
 
+
 <div id="responseMessage"></div>
 <div id="recommendations"></div>
 
@@ -66,36 +67,24 @@ document.getElementById("travelForm").addEventListener("submit", async function(
 
   if (response.ok) {
     const result = await response.json();
-    console.log(result);
+    document.getElementById("responseMessage").innerText = "Ajánlott úti célok:";
 
-    try {
-      const recommendations = result[0].message.content.recommendations;
+    const container = document.getElementById("recommendations");
+    container.innerHTML = "";
 
-      if (recommendations && Array.isArray(recommendations)) {
-        document.getElementById("responseMessage").innerText = "Ajánlott úti célok:";
-        const container = document.getElementById("recommendations");
-        container.innerHTML = "";
+    result.recommendations.forEach(rec => {
+      const card = document.createElement("div");
+      card.style.marginBottom = "15px";
 
-        recommendations.forEach(rec => {
-          const card = document.createElement("div");
-          card.style.marginBottom = "15px";
-          card.innerHTML = `
-            <strong>${rec.label}</strong><br>
-            <span>${rec.description}</span>
-          `;
-          container.appendChild(card);
-        });
-      } else {
-        document.getElementById("responseMessage").innerText = "Nem érkezett ajánlás.";
-      }
-    } catch (err) {
-      console.error("Parsing hiba:", err);
-      document.getElementById("responseMessage").innerText = "Hiba történt az ajánlások feldolgozása során.";
-    }
+      card.innerHTML = `
+        <strong>${rec.label}</strong><br>
+        <span>${rec.description}</span>
+      `;
+      container.appendChild(card);
+    });
   } else {
-    const errorText = await response.text();
-    console.error("Hiba:", errorText);
     document.getElementById("responseMessage").innerText = "Hiba történt a kérés feldolgozása során.";
   }
 });
 </script>
+
