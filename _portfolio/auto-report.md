@@ -44,5 +44,4 @@ Ez egy automatikus riportgeneráló űrlap. Add meg az email címed, és elküld
 
   <button type="submit">Ajánlás kérése</button>
 </form>
-
 <script src="/recommendations>
