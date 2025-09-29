@@ -4,13 +4,10 @@ excerpt: "Teszt teszt"
 collection: portfolio
 ---
 
-Ez egy automatikus riportgeneráló űrlap. Add meg az email címed, és elküldjük neked a riportot!
-
 <h2>Utazási tippek AI segítségével</h2>
 <p>Kérlek, add meg az email címed, és elküldjük neked az automatikusan generált riportot!</p>
 
 <form id="travelForm">
-
   <label for="travelType">Utazás típusa:</label><br>
   <select id="travelType" name="travelType" required>
     <option value="tengerpart">Tengerpart</option>
@@ -69,7 +66,7 @@ document.getElementById("travelForm").addEventListener("submit", async function(
 
   if (response.ok) {
     const result = await response.json();
-    console.log(result); // fejlesztéshez
+    console.log(result);
 
     try {
       const recommendations = result[0].message.content.recommendations;
