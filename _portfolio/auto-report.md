@@ -44,4 +44,56 @@ Ez egy automatikus riportgeneráló űrlap. Add meg az email címed, és elküld
 
   <button type="submit">Ajánlás kérése</button>
 </form>
-<script src="/recommendations>
+
+<div id="responseMessage"></div>
+<div id="recommendations"></div>
+
+<script>
+document.getElementById("travelForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const data = {
+    travelType: document.getElementById("travelType").value,
+    budget: document.getElementById("budget").value,
+    duration: document.getElementById("duration").value,
+    location: document.getElementById("location").value,
+    season: document.getElementById("season").value,
+    notes: document.getElementById("notes").value
+  };
+
+  const response = await fetch("https://fradam99.app.n8n.cloud/webhook/0804ce0e-0240-40a0-9752-874be5147124", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+
+  if (response.ok) {
+    const result = await response.json();
+    console.log(result); // fejlesztéshez
+    
+    try {
+      const recommendations = result[0].message.content.recommendations;
+    
+      if (recommendations && Array.isArray(recommendations)) {
+        document.getElementById("responseMessage").innerText = "Ajánlott úti célok:";
+        const container = document.getElementById("recommendations");
+        container.innerHTML = "";
+    
+        recommendations.forEach(rec => {
+          const card = document.createElement("div");
+          card.style.marginBottom = "15px";
+          card.innerHTML = `
+            <strong>${rec.label}</strong><br>
+            <span>${rec.description}</span>
+          `;
+          container.appendChild(card);
+        });
+      } else {
+        document.getElementById("responseMessage").innerText = "Nem érkezett ajánlás.";
+      }
+    } catch (err) {
+      console.error("Parsing hiba:", err);
+      document.getElementById("responseMessage").innerText = "Hiba történt az ajánlások feldolgozása során.";
+    }
+});
+</script>
