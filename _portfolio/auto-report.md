@@ -1,6 +1,6 @@
 ---
-title: "Automatikus riport igénylés"
-excerpt: "Egyszerű űrlap, amely emailben küld automatikus riportot.<br/><img src='/images/g"
+title: "Travel recommendations with AI"
+excerpt: "Teszt teszt"
 collection: portfolio
 ---
 
@@ -45,47 +45,4 @@ Ez egy automatikus riportgeneráló űrlap. Add meg az email címed, és elküld
   <button type="submit">Ajánlás kérése</button>
 </form>
 
-<div id="responseMessage"></div>
-<div id="recommendations"></div>
-
-<script>
-document.getElementById("travelForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
-
-  const data = {
-    travelType: document.getElementById("travelType").value,
-    budget: document.getElementById("budget").value,
-    duration: document.getElementById("duration").value,
-    location: document.getElementById("location").value,
-    season: document.getElementById("season").value,
-    notes: document.getElementById("notes").value
-  };
-
-  const response = await fetch("https://fradam99.app.n8n.cloud/webhook/0804ce0e-0240-40a0-9752-874be5147124", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  });
-
-  if (response.ok) {
-    const result = await response.json();
-    document.getElementById("responseMessage").innerText = "Ajánlott úti célok:";
-
-    const container = document.getElementById("recommendations");
-    container.innerHTML = "";
-
-    result.recommendations.forEach(rec => {
-      const card = document.createElement("div");
-      card.style.marginBottom = "15px";
-
-      card.innerHTML = `
-        <strong>${rec.label}</strong><br>
-        <span>${rec.description}</span>
-      `;
-      container.appendChild(card);
-    });
-  } else {
-    document.getElementById("responseMessage").innerText = "Hiba történt a kérés feldolgozása során.";
-  }
-});
-</script>
+<script src="/recommendations>
