@@ -10,8 +10,6 @@ Ez egy automatikus riportgeneráló űrlap. Add meg az email címed, és elküld
 <p>Kérlek, add meg az email címed, és elküldjük neked az automatikusan generált riportot!</p>
 
 <form id="travelForm">
-  <label for="email">Email cím:</label><br>
-  <input type="email" id="email" name="email" required><br><br>
 
   <label for="travelType">Utazás típusa:</label><br>
   <select id="travelType" name="travelType" required>
@@ -48,13 +46,13 @@ Ez egy automatikus riportgeneráló űrlap. Add meg az email címed, és elküld
 </form>
 
 <div id="responseMessage"></div>
+<div id="recommendations"></div>
 
 <script>
 document.getElementById("travelForm").addEventListener("submit", async function(e) {
   e.preventDefault();
 
   const data = {
-    email: document.getElementById("email").value,
     travelType: document.getElementById("travelType").value,
     budget: document.getElementById("budget").value,
     duration: document.getElementById("duration").value,
@@ -70,7 +68,22 @@ document.getElementById("travelForm").addEventListener("submit", async function(
   });
 
   if (response.ok) {
-    document.getElementById("responseMessage").innerText = "Köszönjük! Az utazási ajánlás hamarosan megérkezik az email címedre.";
+    const result = await response.json();
+    document.getElementById("responseMessage").innerText = "Ajánlott úti célok:";
+
+    const container = document.getElementById("recommendations");
+    container.innerHTML = "";
+
+    result.recommendations.forEach(rec => {
+      const card = document.createElement("div");
+      card.style.marginBottom = "15px";
+
+      card.innerHTML = `
+        <strong>${rec.label}</strong><br>
+        <span>${rec.description}</span>
+      `;
+      container.appendChild(card);
+    });
   } else {
     document.getElementById("responseMessage").innerText = "Hiba történt a kérés feldolgozása során.";
   }
