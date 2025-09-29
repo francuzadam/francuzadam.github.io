@@ -72,7 +72,9 @@ document.getElementById("travelForm").addEventListener("submit", async function(
     const container = document.getElementById("recommendations");
     container.innerHTML = "";
 
-    result.recommendations.forEach(rec => {
+    const recommendations = result[0]?.message?.content?.recommendations || [];
+    
+    recommendations.recommendations.forEach(rec => {
       const card = document.createElement("div");
       card.style.marginBottom = "15px";
 
