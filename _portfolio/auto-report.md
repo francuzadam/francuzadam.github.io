@@ -1,45 +1,45 @@
 ---
 title: "Travel recommendations with AI"
-excerpt: "Teszt teszt"
+excerpt: "Based on some preferences, AI suggests travel recommendations"
 collection: portfolio
 ---
 
-<h2>Utazási tippek AI segítségével</h2>
-<p>Kérlek, add meg az utazási preferenciáid, és elküldjük neked az automatikusan generált riportot!</p>
+<p>This project uses a GitHub form to collect the required data. Then, a webhook sends this information to the n8n AI automation tool. The OpenAI agent generates recommendations in JSON format, which are then sent back via the webhook.</p>
+
 
 <form id="travelForm">
-  <label for="travelType">Utazás típusa:</label>
+  <label for="travelType">Type of Travel:</label>
   <select id="travelType" name="travelType" required>
-    <option value="tengerpart">Tengerpart</option>
-    <option value="városnézés">Városnézés</option>
-    <option value="természet">Természet</option>
-    <option value="kaland">Kaland</option>
+    <option value="beach">Beach</option>
+    <option value="sightseeing">Sightseeing</option>
+    <option value="nature">Nature</option>
+    <option value="adventure">Adventure</option>
   </select>
 
-  <label for="budget">Költségkeret:</label>
+  <label for="budget">Budget:</label>
   <select id="budget" name="budget" required>
-    <option value="alacsony">Alacsony</option>
-    <option value="közepes">Közepes</option>
-    <option value="magas">Magas</option>
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
   </select>
 
-  <label for="duration">Időtartam:</label>
+  <label for="duration">Duration:</label>
   <select id="duration" name="duration" required>
-    <option value="3 nap">3 nap</option>
-    <option value="1 hét">1 hét</option>
-    <option value="2 hét">2 hét</option>
+    <option value="3 days">3 days</option>
+    <option value="1 week">1 week</option>
+    <option value="2 weeks">2 weeks</option>
   </select>
 
-  <label for="location">Indulási hely:</label>
-  <input type="text" id="location" name="location" placeholder="Pl. Budapest" required>
+  <label for="location">Departure Location:</label>
+  <input type="text" id="location" name="location" placeholder="e.g. Budapest" required>
 
-  <label for="season">Évszak vagy hónap:</label>
-  <input type="text" id="season" name="season" placeholder="Pl. október" required>
+  <label for="season">Season or Month:</label>
+  <input type="text" id="season" name="season" placeholder="e.g. October" required>
 
-  <label for="notes">Megjegyzés / egyéni preferencia:</label>
-  <textarea id="notes" name="notes" rows="3" placeholder="Pl. ne legyen túl meleg, legyen sok látnivaló..."></textarea>
+  <label for="notes">Notes / Personal Preferences:</label>
+  <textarea id="notes" name="notes" rows="3" placeholder="e.g. not too hot, lots of sights to see..."></textarea>
 
-  <button type="submit">Ajánlás kérése</button>
+  <button type="submit">Request Recommendation</button>
 </form>
 
 <div id="responseMessage"></div>
