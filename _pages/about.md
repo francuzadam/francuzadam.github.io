@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-Welcome to my website! My name is Ádám Francuz, and I’m a freelance Data Analyst & Data Scientist with several years of experience in the field. Currently, I’m pursuing a PhD at the University of Miskolc, where my research focuses on AI applications and model development for logistics process optimization.
+Welcome to my website! My name is Ádám Francuz, and I’m a Data Analyst & Data Scientist with several years of experience in the field. Currently, I’m pursuing a PhD at the University of Miskolc, where my research focuses on AI applications and model development for logistics process optimization.
 On this site, you’ll find an overview of my professional experience, academic publications, and a selection of interactive projects showcased in the portfolio section.
 
 **Tech Stack:** Excel / VBA / Google Sheets / Python / SQL / Power BI
