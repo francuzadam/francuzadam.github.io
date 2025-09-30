@@ -68,16 +68,16 @@ document.getElementById("travelForm").addEventListener("submit", async function(
   if (response.ok) {
     const result = await response.json();
     document.getElementById("responseMessage").innerText = "Ajánlott úti célok:";
-
+    
     const container = document.getElementById("recommendations");
     container.innerHTML = "";
-
+    
     const recommendations = result[0]?.message?.content?.recommendations || [];
     
-    recommendations.recommendations.forEach(rec => {
+    recommendations.forEach(rec => {
       const card = document.createElement("div");
       card.style.marginBottom = "15px";
-
+    
       card.innerHTML = `
         <strong>${rec.label}</strong><br>
         <span>${rec.description}</span>
