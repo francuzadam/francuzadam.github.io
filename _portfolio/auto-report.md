@@ -49,7 +49,6 @@ collection: portfolio
 <script>
 document.getElementById("travelForm").addEventListener("submit", async function(e) {
   e.preventDefault();
-
   const data = {
     travelType: document.getElementById("travelType").value,
     budget: document.getElementById("budget").value,
@@ -64,34 +63,27 @@ document.getElementById("travelForm").addEventListener("submit", async function(
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data)
   });
-
-  i
 if (response.ok) {
   const result = await response.json();
-  console.log("Teljes válasz JSON:", result); 
+  console.log("Teljes válasz JSON:", result); // Ez most már kiírja a tömböt
+  
   document.getElementById("responseMessage").innerText = "Ajánlott úti célok:";
   const container = document.getElementById("recommendations");
   container.innerHTML = "";
-
-  const recommendations = result[0]?.message?.content?.recommendations || [];
-
-  if (recommendations.length === 0) {
-    container.innerHTML = "<em>Nincs ajánlás az adott paraméterekre.</em>";
-  } else {
-    recommendations.forEach(rec => {
-      const card = document.createElement("div");
-      card.style.marginBottom = "15px";
-      card.innerHTML = `
-        <strong>${rec.label}</strong><br>
-        <span>${rec.description}</span>
-      `;
-      container.appendChild(card);
-    });
+  
+  result.forEach(rec => {
+    const card = document.createElement("div");
+    card.style.marginBottom = "15px";
+    card.innerHTML = `
+      <strong>${rec.label}</strong><br>
+      <span>${rec.description}</span>
+    `;
+    container.appendChild(card);
+  });
   }
 } else {
   document.getElementById("responseMessage").innerText = "Hiba történt a kérés feldolgozása során.";
 }
-
 });
 </script>
 
