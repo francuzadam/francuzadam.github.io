@@ -64,8 +64,6 @@ document.getElementById("travelForm").addEventListener("submit", async function(
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data)
   });
-
-  i
 if (response.ok) {
   const result = await response.json();
   console.log("Teljes válasz JSON:", result); 
