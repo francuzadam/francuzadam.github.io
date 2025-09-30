@@ -42,7 +42,6 @@ collection: portfolio
   <button type="submit">Ajánlás kérése</button>
 </form>
 
-
 <div id="responseMessage"></div>
 <div id="recommendations"></div>
 
@@ -58,32 +57,33 @@ document.getElementById("travelForm").addEventListener("submit", async function(
     notes: document.getElementById("notes").value
   };
 
+  console.log("Beküldött adatok:", data);
+
   const response = await fetch("https://fradam99.app.n8n.cloud/webhook/0804ce0e-0240-40a0-9752-874be5147124", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data)
   });
-if (response.ok) {
-  const result = await response.json();
-  console.log("Teljes válasz JSON:", result); // Ez most már kiírja a tömböt
-  
-  document.getElementById("responseMessage").innerText = "Ajánlott úti célok:";
-  const container = document.getElementById("recommendations");
-  container.innerHTML = "";
-  
-  result.forEach(rec => {
-    const card = document.createElement("div");
-    card.style.marginBottom = "15px";
-    card.innerHTML = `
-      <strong>${rec.label}</strong><br>
-      <span>${rec.description}</span>
-    `;
-    container.appendChild(card);
-  });
+
+  if (response.ok) {
+    const result = await response.json();
+    console.log("Teljes válasz JSON:", result);
+
+    document.getElementById("responseMessage").innerText = "Ajánlott úti célok:";
+    const container = document.getElementById("recommendations");
+    container.innerHTML = "";
+
+    result.forEach(rec => {
+      const card = document.createElement("div");
+      card.style.marginBottom = "15px";
+      card.innerHTML = `
+        <strong>${rec.label}</strong><br>
+        <span>${rec.description}</span>
+      `;
+      container.appendChild(card);
+    });
+  } else {
+    document.getElementById("responseMessage").innerText = "Hiba történt a kérés feldolgozása során.";
   }
-} else {
-  document.getElementById("responseMessage").innerText = "Hiba történt a kérés feldolgozása során.";
-}
 });
 </script>
-
