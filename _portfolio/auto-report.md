@@ -42,26 +42,42 @@ collection: portfolio
   <button type="submit">Ajánlás kérése</button>
 </form>
 
+
 <div id="responseMessage"></div>
 <div id="recommendations"></div>
 
-if (response.ok) {
+<script>
+document.getElementById("travelForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const data = {
+    travelType: document.getElementById("travelType").value,
+    budget: document.getElementById("budget").value,
+    duration: document.getElementById("duration").value,
+    location: document.getElementById("location").value,
+    season: document.getElementById("season").value,
+    notes: document.getElementById("notes").value
+  };
+
+  const response = await fetch("https://fradam99.app.n8n.cloud/webhook/0804ce0e-0240-40a0-9752-874be5147124", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+
+  if (response.ok) {
     const result = await response.json();
     document.getElementById("responseMessage").innerText = "Ajánlott úti célok:";
-    
+
     const container = document.getElementById("recommendations");
     container.innerHTML = "";
-    
+
     const recommendations = result[0]?.message?.content?.recommendations || [];
-    
 
-
-
-
-    recommendations.forEach(rec => {
+    recommendations.recommendations.forEach(rec => {
       const card = document.createElement("div");
       card.style.marginBottom = "15px";
-    
+
       card.innerHTML = `
         <strong>${rec.label}</strong><br>
         <span>${rec.description}</span>
@@ -71,9 +87,5 @@ if (response.ok) {
   } else {
     document.getElementById("responseMessage").innerText = "Hiba történt a kérés feldolgozása során.";
   }
-
-
-
-
 });
 </script>
