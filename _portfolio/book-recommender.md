@@ -22,6 +22,21 @@ This project demonstrates how **GitHub Pages** (static frontend) can work togeth
   <button type="submit">Get Recommendation</button>
 </form>
 
+<script>
+document.getElementById("book-form").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+  const response = await fetch("https://miterdemes.pythonanywhere.com/process", {
+    method: "POST",
+    body: formData
+  });
+
+  const data = await response.json();   // <-- fontos: a backendnek JSON-t kell visszaadnia
+  document.getElementById("result").innerText = data.message;
+});
+</script>
+
 ## 🔧 How It Works
 1. User enters up to three favorite books in the form above.  
 2. The form POSTs the data to a **Flask API** hosted on PythonAnywhere.  
