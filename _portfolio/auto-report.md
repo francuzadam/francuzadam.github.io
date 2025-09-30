@@ -85,7 +85,7 @@ if (response.ok) {
       `;
       container.appendChild(card);
     });
-  }
+  
 } else {
   document.getElementById("responseMessage").innerText = "Hiba történt a kérés feldolgozása során.";
 }
