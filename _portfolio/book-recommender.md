@@ -11,13 +11,13 @@ This project demonstrates how **GitHub Pages** (static frontend) can work togeth
 
 <form method="POST" action="https://miterdemes.pythonanywhere.com/process">
   <label for="book1">Book 1:</label>
-  <input type="text" id="book1" name="book1"><br><br>
+  <input type="text" id="book1" name="field_1"><br><br>
 
   <label for="book2">Book 2:</label>
-  <input type="text" id="book2" name="book2"><br><br>
+  <input type="text" id="book2" name="field_2"><br><br>
 
   <label for="book3">Book 3:</label>
-  <input type="text" id="book3" name="book3"><br><br>
+  <input type="text" id="book3" name="field_3"><br><br>
 
   <button type="submit">Get Recommendation</button>
 </form>
