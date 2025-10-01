@@ -38,10 +38,9 @@ function setupAutocomplete(input) {
   suggestionBox.style.zIndex = "1000";
   suggestionBox.style.maxHeight = "150px";
   suggestionBox.style.overflowY = "auto";
-  suggestionBox.style.width = input.offsetWidth + "px";
   suggestionBox.style.display = "none";
 
-  input.parentNode.appendChild(suggestionBox);
+  document.body.appendChild(suggestionBox); // közvetlenül a body-hoz adjuk, hogy abszolút pozíció működjön
 
   input.addEventListener("input", async () => {
     const query = input.value;
@@ -52,6 +51,12 @@ function setupAutocomplete(input) {
 
     const suggestions = await fetchSuggestions(query);
     suggestionBox.innerHTML = "";
+
+    const rect = input.getBoundingClientRect();
+    suggestionBox.style.left = rect.left + window.scrollX + "px";
+    suggestionBox.style.top = rect.bottom + window.scrollY + "px";
+    suggestionBox.style.width = rect.width + "px";
+
     suggestions.forEach(suggestion => {
       const item = document.createElement("div");
       item.textContent = suggestion;
@@ -73,6 +78,7 @@ function setupAutocomplete(input) {
     }
   });
 }
+
 
 ["book1", "book2", "book3"].forEach(id => {
   setupAutocomplete(document.getElementById(id));
