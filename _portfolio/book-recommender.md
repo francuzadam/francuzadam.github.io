@@ -40,12 +40,10 @@ function setupAutocomplete(input) {
   suggestionBox.style.overflowY = "auto";
   suggestionBox.style.width = input.offsetWidth + "px";
   suggestionBox.style.display = "none";
-
-  // Pozíció beállítása közvetlenül az input alatt
+  
   suggestionBox.style.left = input.offsetLeft + "px";
   suggestionBox.style.top = (input.offsetTop + input.offsetHeight) + "px";
 
-  // A suggestionBox az input szülőjéhez kerül
   input.parentNode.appendChild(suggestionBox);
 
   input.addEventListener("input", async () => {
