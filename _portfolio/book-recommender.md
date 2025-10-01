@@ -40,9 +40,6 @@ function setupAutocomplete(input) {
   suggestionBox.style.overflowY = "auto";
   suggestionBox.style.width = input.offsetWidth + "px";
   suggestionBox.style.display = "none";
-  
-  suggestionBox.style.left = input.offsetLeft + "px";
-  suggestionBox.style.top = (input.offsetTop + input.offsetHeight) + "px";
 
   input.parentNode.appendChild(suggestionBox);
 
